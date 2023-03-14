@@ -1,0 +1,15 @@
+@import '../variable_list.scss';
+@import '../common.scss';
+
+
+.login_wrap_title { font-size: $font_l; font-weight: bold; margin-bottom: 10px; }
+
+.login_wrap {
+  ul { display: inline-block; float: left; width: 100%; @extend .margin-bottom-last-0;
+    li { display: inline-block; float: left; width: 100%;
+      .title { margin-bottom: 5px; font-size: 16px !important; }
+      //> .title { width: calc(150px); margin-right: 10px; }
+      //> .body { width: calc(100% - 160px); }
+    }
+  }
+}

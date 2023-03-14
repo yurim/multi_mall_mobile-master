@@ -1,0 +1,60 @@
+@import 'variable_list';
+@import 'mixin';
+@import 'reset_button';
+@import 'reset_input';
+
+//$input_height: 40px;
+
+
+
+
+//input + a
+.input_but_wrap {
+  > * { display: inline-block; float: left; margin-right: 10px; }
+  > *:last-child { margin-right: 0; }
+  input, select { width: calc(100% - 110px) !important; border: 1px solid $gray_light; height: $input_height; padding: 5px 10px; }
+  a { width: 100px; @extend .but_style; font-size: $font_sm; border-radius: 0 !important; }
+  .line_but { color: $brand_color; border: 1px solid $brand_color; background: white !important; }
+  .black_line_but { color: black; border: 1px solid black; background: white !important; }
+  .gray_but { color: white; border: 1px solid $gray_dark; background: $color_gray_7 !important; }
+  .gray_but_light { color: black; border: 1px solid $gray_dark; background: $color_gray_f3 !important; }
+  .gray_full_light_but { color: black; border: 1px solid #EFEFEF; background: #F9F9F9 !important; }
+}
+
+//input 1 + a 2
+.input_but_two_wrap {
+  > * { display: inline-block; float: left; margin-right: 10px; }
+  > *:last-child { margin-right: 0; }
+  input, select { width: calc(100% - 220px) !important; border: 1px solid $gray_light }
+  a { width: 100px; @extend .but_style; }
+  .line_but { color: $brand_color; border: 1px solid $brand_color; background: white !important; }
+  .black_line_but { color: black; border: 1px solid black; background: white !important; }
+  .gray_but { color: white; border: 1px solid $gray_dark; background: $color_gray_7 !important; }
+  .gray_but_light { color: black; border: 1px solid $gray_dark; background: $color_gray_f3 !important; }
+}
+
+
+//카운트
+.product-count { display: inline-block; margin-right: 10px; background: white !important;
+  a { float: left; width: 35px; text-align: center; border: 1px solid #aaa; height: 35px !important; line-height: 35px !important; background-size: 14px !important; font-size: 0; }
+  input { float: left; width: calc(100% - 70px); border-top: 1px solid #aaa; height: 35px !important; line-height: 35px; border-bottom: 1px solid #aaa; border-left: 0;
+    border-right: 0; text-align: center; padding: 0 12px; }
+  .minus_but { background: url('../img/icon/add.png') no-repeat center; }
+  .plus_but { background: url('../img/icon/plus.png') no-repeat center; }
+}
+.product-count.readonly { background: none !important; }
+
+//장바구니 독바
+.cart_but_wrap { display: inline-block; width: 100%; float: left; padding: 10px 15px;
+  .naver_pay{ display: inline-block; width: 100%; padding: 10px;
+  .npay_storebtn_bx.npay_type_MA_1 { width: 100% !important;}
+  }
+  .total_price_wrap { display: flex; justify-content: center; align-items: center; font-weight: 500;
+    position: relative; padding-top: 10px;
+    > * { width: 50%; }
+   .total_price { line-height: 40px; text-align: center; color: $main_gray; margin-right: 5px;
+     font-size: 18px; letter-spacing: -0.5px; }
+    a { @extend .but_style; }
+    &:before { content: ""; position: absolute; left: -30px; top: 0; width: calc(100% + 60px); height: 1px; background: #C4C4C4; }
+  }
+}

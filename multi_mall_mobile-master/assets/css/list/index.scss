@@ -1,0 +1,90 @@
+@import '../variable_list';
+@import '../reset_button';
+.list_title_wrap { text-align: left; display: inline-block; float: left; width: 100%; padding: 5px 0; margin-top: 0;
+  span { font-size: 22px; font-weight: bold; }
+  span.sub_title { font-size: 12px }
+  > a { float: right; font-size: 14px; color: $brand_color; line-height: 42px; }
+
+  //타이틀과 옆에 메뉴모음
+  .tab_menu_wrap { display: block; text-align: right;
+    li { display: inline-block; text-align: right;  margin-right: 5px; margin-bottom: 5px;
+      a { font-size: 14px; border: 1px solid $brand_color; color: $brand_color; padding: 2px 10px; display: inline-block; @extend .radius_st; }
+      a.on { background: $brand_color; color: white !important; }
+    }
+    li:last-of-type { margin-right: 0; }
+    li:nth-of-type(3n+3) { margin-right: 0; }
+  }
+}
+//장바구니 로케이션
+.order_step_list_wrap {
+  float: right; font-size: 12px !important; color: #777; margin-top: 10px;
+  span { font-size: 12px !important; }
+}
+
+
+//제품 상단 분류관련 s
+.top_sub_menu_wrap { padding-top: 20px; margin-bottom: 10px; display: inline-block; float: left; width: 100%;
+
+  .top_sub_menu_wrap_item { display: inline-block; width: 100%; border-bottom: 1px solid #E1E1E1; padding-top: 10px; padding-bottom: 10px; }
+  //.top_sub_menu_wrap_item:last-of-type { margin-bottom: 40px; }
+  .category_title { font-weight: bold; margin-bottom: 10px; }
+
+  .top_category_wrap{ display: inline-block; float: left; width: 100%; text-align: left; word-break: break-word;
+    span { color: #9E9E9E; font-size: 14px; margin-left: 40px; }
+  }
+
+  .select_txt_wrap { display: flex; justify-content: space-between; align-items: center;
+    div { flex: 1; margin-bottom: 0 !important; }
+    select{ flex: 2; border: 0 !important; padding: 0 0 35px 0;  display: inline-block; }
+    select, option { text-align:right; }
+  }
+
+  ul { display: inline-block; width: 100%;
+    li { display: inline-block; float: left; text-align: left;
+      a { color: #4E4E4E; margin-right: 14px; margin-bottom: 5px;  }
+    }
+  }
+}
+
+// 현재 카테고리
+.category_tree_wrap { display: inline-block; width: 100%;
+  > li + li { margin-left: 10px; }
+  > li { display: inline-block; text-align: left; float: left; line-height: 24px;
+    a { margin-right: 0; margin-bottom: 5px; position: relative; line-height: 24px; display: inline-block;  $black: black; font-size: 16px;
+      &:before { content: ''; position: absolute; top: 50%; right: -16px; transform: translateY(-50%); width: 6px; height: 12px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 15'%3E%3Cpath fill='%23#{$black}' d='M0 1.414L1.414 0l7.071 7.071-7.07 7.071L0 12.728 5.657 7.07 0 1.414z'/%3E%3C/svg%3E") no-repeat 50%;}
+    }
+    &:last-of-type {
+      a { color: $brand_color;  font-weight: 500; line-height: 22px;
+        &:before { display: none; }
+      }
+    }
+  }
+}
+// 관련 카테고리
+.category_list {
+  li {  border: 1px solid #dadce0; margin-right: 5px; margin-bottom: 5px; padding: 2px 10px 2px 25px;
+    a { position: relative; margin-right: 0 !important; font-size: 14px;
+      &:before { content: ''; position: absolute; top: 50%; left: -13px; transform: translateY(-50%); width: 8px; height: 8px; $gray_c2:c2c8cc;
+        background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 0a.75.75 0 00-.75.75v4.5H.75a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5V.75A.75.75 0 006 0z' fill='%23#{$gray_c2}'/%3E%3C/svg%3E") no-repeat 50%;
+      }
+    }
+  }
+  li:last-of-type { margin-right: 0; }
+}
+//제품 상단 분류관련 e
+
+// 이미지 상단 정렬
+.search_image_wrap { display: inline-block; width: 100%; margin-bottom: 10px; margin-top: 5px;
+  .title { font-size: 14px !important; font-weight: 700; }
+}
+
+//제품상단 정렬방식
+.top_range_wrap { display: inline-block; width: 100%; margin-bottom: 10px !important;
+  li { display: inline-block; float: left; position: relative; margin-right: 13px;
+    a { font-size: 14px; }
+  }
+  li:last-of-type { margin-right: 0; }
+  li:after { content: ''; width: 1px; height: 12px; background: black; position: absolute; top: 50%; transform: translateY(-50%); right: -7px; }
+  li:last-of-type:after { content:none; }
+}

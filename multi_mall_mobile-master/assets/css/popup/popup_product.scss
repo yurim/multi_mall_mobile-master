@@ -1,0 +1,27 @@
+.search_wrap { margin-top: 20px; margin-bottom: 40px; display: inline-block; width: 100%;
+  > * { display: inline-block; float: left; }
+  .search_wrap__title { width: 100px; margin-right: 10px; line-height: 30px; }
+  .search_wrap__body { width: calc(100% - 110px); }
+}
+
+.two_btn_input_wrap { display: inline-block; width: 100%; font-size: 0;
+  $h: 30px;
+  $l-h: 30px;
+  > * { display: inline-block; float: left; margin-right: 10px; font-size: 12px;}
+  > *:last-child { margin-right: 0; }
+  input {
+    width: calc(100% - 220px); height: $h; line-height: $l-h;
+    padding: 5px; border: 1px solid #ededed;
+  }
+  a { display: inline-block; height: $h; line-height: $l-h; width: 100px; background: black; color: white; text-align: center; }
+  .line_btn { background: white; color: black; }
+}
+.bottom_product_wrap { display: inline-block; width: 100%;
+  .product_wrap { display: inline-block; width: 100%;
+    > * { display: inline-block; width: 49%; float: left; max-height: 450px; overflow-y: scroll; }
+    > *:first-child { margin-right: 2%; }
+    ul {
+      li { }
+    }
+  }
+}

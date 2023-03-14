@@ -1,0 +1,61 @@
+.popup_layout { z-index: 100000;
+
+  min-width: 400px;
+  padding: 40px;
+  background: white;
+  display: inline-block !important;
+  font-size: 0;
+
+  > div { padding: 20px; }
+
+  .pop_header { font-size: 14px; }
+  .pop_content { font-size: 14px; }
+  .pop_footer { text-align: center; font-size: 14px;
+    a { display: inline-block; }
+  }
+
+}
+
+//하루동안 이 창을 열지 않음 체크박스 있는 팝업
+.not_today_btn_wrap {
+  background: black !important; padding: 10px !important; display: inline-block; width: 100%;
+  .checkbox_wrap { color: white; float: left; text-align: left; padding: 0; }
+  a { float: right; text-align: right; color: white; }
+}
+
+//이미지 최대 넓이
+.pop_content.image_wrap { max-height: 350px; overflow: scroll;
+  img { max-width: 500px; width: 100%; }
+}
+
+.pop_content.address { height: 350px; overflow: scroll; }
+
+.address_list {
+  li:first-of-type { border-top: 1px solid #aaa; }
+  li { border-bottom: 1px solid #aaa; padding: 10px 0; font-size: 14px;
+    .but_wrap {
+      a { font-size: 12px; }
+    }
+  }
+}
+.add_address_but { text-align: center; margin-top: 10px;
+  a { border: 1px solid #aaa !important; display: inline-block; width: 100%; border-radius: 3px; color: white !important; background: #aaa !important; height: 40px; line-height: 40px; }
+}
+.add_address_wrap {
+  > div { margin-bottom: 10px; }
+  > div:last-of-type { margin-bottom: 0; }
+}
+
+.popup_layout.notice_popup { max-height: 540px;
+  .pop_content { max-height: 350px; overflow: scroll; }
+}
+
+//메인팝업만의 css
+.main_pop { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+  @media (max-width: 768px) {
+    width: 80%;
+    min-width: auto !important;
+    transform: translateX(-50%);
+  }
+}

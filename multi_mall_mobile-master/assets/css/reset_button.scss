@@ -1,0 +1,145 @@
+@import 'variable_list.scss';
+@import 'mixin.scss';
+
+.radius_st { border-radius: 1px; }
+.color_black { color: black; }
+.under_line { text-decoration: underline !important; }
+
+$a_height : 40px;
+$a_line_height : 40px;
+
+//버튼 공통 스타일
+.but_style {
+  min-width: 100px; text-align: center; color: white; background: $brand_color; display: inline-block;
+  border: 1px solid $brand_color; height: $a_height;  line-height: $a_line_height;
+  font-size: initial;
+  @extend .radius_st;
+}
+.but_wrap { display: flex; width: 100%; font-size: 0;
+  &.square_btn {
+    a, button, input[type=submit] { border-radius: 0; font-size: 14px;  }
+  }
+  // 버튼이 2개일때
+  &.two { flex-wrap: wrap; justify-content: space-between;
+    a { flex-basis: calc(50% - 2%); margin-bottom: 5px; }
+    a:nth-of-type(2n+2) { margin-right: 0; }
+  }
+  a, button, input[type=submit] { @extend .but_style; flex: 1; min-width: initial; }
+  a:last-child, button:last-child, input[type=submit]:last-child { margin-right: 0; }
+
+  * { margin-right: 2%; }
+  *:last-child { margin-right: 0; }
+
+  //a:first-child:nth-last-child(1),
+  //a:first-child:nth-last-child(1) ~ a { width: 100%; }
+  //
+  //a:first-child:nth-last-child(2),
+  //a:first-child:nth-last-child(2) ~ a { width: calc(50% - 1%); }
+  //
+  //a:first-child:nth-last-child(3),
+  //a:first-child:nth-last-child(3) ~ a { width: calc(33% - 1%); }
+
+}
+// 제품상세 버튼 (텍스트2줄이상)
+.product_btn_style {
+ text-align: center; color: white; background: $brand_color; display: inline-block;
+  border: 1px solid $brand_color; font-size: initial; padding: 5px 0; @extend .radius_st;
+  //height: calc(#{$a_height} + 5px); line-height: calc(#{$a_line_height} + 4px);
+}
+.product_btn_wrap { display: flex; width: 100%; margin: 10px 0; align-self: center;
+  // 버튼 + 아이콘일때
+  &.icon_two {  flex-wrap: wrap; justify-content: space-between;
+    .cart { flex-basis: 40px !important; border: 1px solid $color_gray_D4; background: white; flex: none; }
+    a { flex-basis: calc(50% - 2% - 20px);  margin-bottom: 5px;  }
+    a:nth-of-type(3n+3) { margin-right: 0; }
+  }
+  a, button, input[type=submit] { @extend .product_btn_style; flex: 1; flex-direction: column; }
+  a:last-child, button:last-child, input[type=submit]:last-child { margin-right: 0; }
+
+  * { margin-right: 2%; }
+  *:last-child { margin-right: 0; }
+
+  .guide_txt { font-size: 10px; color: $color_gray_9D;
+    &.white { color: white !important; background: none !important; }
+  }
+}
+//작은 네모버튼
+.square_but_wrap { font-size: 0;
+  a, button, input[type=submit], .disabled { @extend .but_style; margin-right: 5px; border-radius: 0 !important; padding: 0 10px; font-size: $font_xs;
+    height: calc(#{$a_height} - 15px); line-height: calc(#{$a_line_height} - 15px); min-width: auto !important;
+  }
+  select, input { float: left; height: calc(#{$a_height} - 15px) !important; line-height: calc(#{$a_line_height} - 16px) !important; width: 120px; font-size: $font_xs; color: $gray_dark; }
+  a:last-child, button:last-child, input[type=submit]:last-child { margin-right: 0; }
+}
+
+//공통 작은 버튼
+.small_but_style {
+  @extend .radius_st;
+  text-align: center; color: white; background: $brand_color; display: inline-block; padding: 2px 5px;
+  border: 1px solid $brand_color; height: calc(#{$a_height} - 6px); line-height: calc(#{$a_line_height} - 10px); font-size: $font_s;
+}
+.small_but_wrap { display: inline-block;
+  a, button, input[type=submit] { @extend .small_but_style; height: calc(#{$a_height} - 10px); line-height: calc(#{$a_line_height} - 14px); }
+  a, button, input[type=submit]:last-child { margin-right: 0; }
+}
+
+//각 버튼 색만 변경해야할때
+.btn_small { @extend .small_but_style;
+  &.line_but { color: $brand_color; border: 1px solid $brand_color; background: white !important; }
+  &.black_line_but { color: black; border: 1px solid black; background: white !important; }
+  &.gray_but { color: white; border: 1px solid $gray_dark; background: $gray_dark !important; }
+  &.gray_but_light { color: black; border: 1px solid $gray_medium; background: white !important; }
+}
+
+//각 버튼 색만 변경해야할때
+.but_wrap, .small_but_wrap, .square_but_wrap , [class*="btn_s"], .product_btn_wrap {
+  .naver_but { color: white; border: 1px solid #3DAF43; background: #3DAF43 !important; }
+  .kakao_but { color: white; border: 1px solid #F1C40F; background: #F1C40F !important; }
+
+  .black_line_but { color: black; border: 1px solid black; background: white !important; }
+  .full_light_but { color: $brand_color; border: 1px solid $brand_color; background: #F2F5FF !important; }
+  .line_but { color: $brand_color; border: 1px solid $brand_color; background: white !important; }
+  .red_line_but { color: $main_red; border: 1px solid $main_red; background: white !important; }
+  .gray_but { color: white; border: 1px solid $gray_dark; background: $gray_dark !important; }
+  .gray_line_but { color: black; border: 1px solid #c4c4c4; background: white !important; }
+  .gray_but_light { color: black; border: 1px solid $color_gray_D4; background: white !important; }
+  .gray_line_light_but { color: $main_gray; border: 1px solid $color_gray_D4; background: white !important; }
+  .gray_line_light_red { color: #FF005C; border: 1px solid $color_gray_D4; background: white !important; }
+  .gray_full_light_but { color: black; border: 1px solid #EFEFEF; background: #F9F9F9 !important; }
+
+  .full_light_disabled_but { color: $color_gray_D4; border: 1px solid $color_gray_D4 !important; background: #F9F9F9 !important; }
+  .disabled_line_but { color: #afa8a8; border: 1px solid $color_gray_D4 !important; background: white !important; }
+  .disabled_but { color: white; border: 1px solid #4e4e4e !important; background: #4e4e4e !important; }
+
+  .pink_disabled_but { color: #FF005C; border: 1px solid #EFEFEF !important; background: #F6F6F6 !important; }
+}
+.unsell_product { text-align: center; display: inline-block; height: $a_height; line-height: $a_line_height; width: 100%; background: #4E4E4E; color: white; }
+
+// 스몰 버튼 공통스타일
+.btn_s ,.btn_s_left ,.btn_s_right { display: inline-block;
+  a { padding: 6px 18px; font-size: $font_s; line-height: 1;
+    @extend .radius_st;
+  }
+}
+.btn_s_right { float: right; }
+.btn_s_left { float: left; }
+
+// 상단에 들어갈 sub nav
+.tab_nav_wrap { display: flex; float: left; width: 100%; text-align: center;
+  a { display: inline-block; float: left; flex: 1; font-size: 14px; border: 1px solid #4E4E4E; color: #4E4E4E; padding: 2px 10px; }
+  a.on { background: #4E4E4E; color: $brand_color; }
+}
+.top_tab_nav_wrap { display: inline-block; float: left; width: 100%; background: white; box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  li { display: inline-block; float: left; position: relative;
+    a { display: inline-block; font-size: 14px; padding: 10px 25px; font-weight: bold; }
+  }
+  li.on {
+    a { color: $brand_color; }
+  }
+  li.on a:after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 6px; background: $brand_color; }
+}
+.login_wrap {
+  .tab_nav_wrap{
+    a.on { background: #4E4E4E; color: white; }
+  }
+}

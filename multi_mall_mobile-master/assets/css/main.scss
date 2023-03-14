@@ -1,0 +1,261 @@
+@import 'variable_list.scss';
+@import 'reset_button.scss';
+@import 'pagination.scss';
+@import 'mixin.scss';
+
+// 메인 아이템 2단 공통
+.list_warp { width: 100%;
+   .list_inner + .list_inner { padding-top: 15px; }
+    .list_inner {  @include clear(); width: 100%; position: relative;
+      .list_box.on { border-bottom: 5px solid #f8f8f8; padding-bottom: 20px; }
+      > .list_box { font-size: 0; display: inline-block; width: 100%;
+        > * { font-size: initial; }
+      }
+    .img_wrap { width: calc(40% - 20px); height: 100%; overflow: hidden; float: left; margin-right: 20px;
+      img { display:block; width: 100%; height: 100%; object-fit: cover; }
+    }
+    .text_wrap { width: 60%; float: left;
+      .store_wrap {
+        a, span { color: $color_gray_9D; font-size: $font_s; margin-bottom: 5px; display: inline-block; }
+        span { cursor: default; }
+      }
+      .title_wrap {
+        a { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;
+          line-height:20px; height:40px; margin-bottom: 5px; font-size: $font_sm; } }
+      .price_wrap { line-height: 20px; text-align: right; margin-bottom: 5px;
+        > * { font-size: $font_sm;
+          span { display: inline-block; font-size: 12px; color: $color_gray_9D; margin-right: 5px; font-weight: 400; }
+          em { color: $brand_color; font-weight: 700; }
+        }
+        .discount-percentage { float: left; margin-right: 5px; }
+        .base-price { color: $color_gray_9D; text-decoration:line-through !important; width: 100%; line-height: 25px; }
+        .sale-price , .cost-price { font-size: $font_m; font-weight: 700; }
+      }
+      .reaction { text-align: right; border-top: 1px solid #E5E5E5; padding-top: 5px;
+        .data_star { float: left;
+          .only_star { width: 13px; height: 18px; }
+        }
+      }
+    }
+     // 메인 리뷰
+     .review_coll_top { width: 100%; display: inline-block; margin-top: 10px; overflow: hidden;
+       > .list_tab_top { background: white;
+         .open_btn { position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+           a { display: block; width: 30px; height: 30px; transition: all 0.3s; $color: '000000';
+             background-size: 16px !important;
+             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 8'%3E%3Cpath clip-rule='evenodd' d='M.933.433a.625.625 0 01.884 0l5.808 5.808L13.433.433a.625.625 0 11.884.884l-6.25 6.25a.625.625 0 01-.884 0l-6.25-6.25a.625.625 0 010-.884z' fill='%23#{$color}'/%3E%3C/svg%3E") no-repeat 50%; }
+           &.on {
+             a { transform: rotate(180deg); }
+           }
+         }
+       }
+       > .review_coll_bottom { max-height: 0; overflow: hidden;  transition: all 0.2s linear; background: #F8F8F8; border-bottom: 5px solid #F8F8F8;
+         .review_list_wrap { display: none;
+           > div:first-of-type { margin-top: 20px; }
+           .list_tab_bottom { @include clear();
+             li { width: calc(100% / 2); float: left;
+               a { border: 1px solid $brand_color; background: white; color: $brand_color; width: 100%; display: block; height: 35px; line-height: 35px; text-align: center; font-size: $font_sm; }
+               &.on {
+                 a { color: white; background: $brand_color; }
+               }
+             }
+           }
+           &.on { display: block; }
+         }
+         &.on { height: auto;
+           max-height: none;
+           overflow: auto; transition: all 0.2s linear; border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; }
+          .review_show_content { background: white; margin: 15px auto;
+            &:after { content: ""; display: block; clear: both; }
+          }
+       }
+     }
+  }
+  // 가격비교
+  &.price { display: block; float: left;
+  .price_wrap { text-align: left !important; }
+    .list_tab_top { span { color: black; } }
+    .review_coll_bottom { background: white !important; display: inline-block; width: 100%; overflow-y: hidden; }
+    .compare_wrap { display: inline-block; width: 100%; overflow: hidden;
+      table { margin-bottom: 0;
+        th, td { padding: 10px 5px; }
+        //thead {
+        //  tr { border-bottom: 1px solid #E5E5E5;
+        //    th { border: none; text-align: right; font-size: 12px !important; color: $color_gray_9D; font-weight: 400; background: #F9F9F9; }
+        //  }
+        //}
+        tbody {
+          tr { border-bottom: 1px solid #E5E5E5; }
+          tr:first-of-type {
+            td:last-of-type {
+              em { color: $brand_color; font-weight: 700; }
+            }
+          }
+          td { border: none;
+            em { color: $color_gray_9D; font-weight: 500; }
+            ul {
+              li { display: inline-block; width: 100%;
+                > * { display: inline-block; float: left; }
+                > *:first-child { text-align: left; }
+                > *:last-child { text-align: right; float: right; }
+              }
+            }
+          }
+          //td:nth-last-of-type(-n+2) { text-align: right }
+        }
+      }
+    }
+  }
+}
+// 메인 기획전
+.section_01 {
+  .exhibition_list_wrap { width: 100%; display: block;
+    .exhibition_list {
+      // 상단 기획전
+      //> li:nth-of-type(1), > li:nth-of-type(2) { width: 100%;
+      //  .exhibition_img { position: relative;
+      //    &:before { background-size: cover; background-position: center; background-repeat: no-repeat; position: absolute; right: 10px; top: 15px; height: 7vw; z-index: 10; }
+      //  }
+      //}
+      //> li:nth-of-type(1){
+      //  .exhibition_img {
+      //    &:before { content: ""; width: 15vw; background-image: url("");}
+      //  }
+      //}
+      //> li:nth-of-type(2){ margin-right: 0;
+      //  .exhibition_img {
+      //    &:before { content: ""; width: 25vw; background-image: url("");}
+      //  }
+      //}
+      .kword_wrap.top { position: absolute !important; left: 0; top: -35px; width: 100%;
+        > * { float: left; }
+        .kword_list { width: calc(100% - 110px); margin-left: 10px;
+          &:after { display: none; }
+          li { color: white !important; border: 1px solid white !important; margin: 0 5px 0 0 !important; }
+        }
+        .more.small { top: -2px !important; box-shadow: -5px 0 15px rgba(0,0,0,0.7);}
+      }
+       //공통
+      > li { display: inline-block; width: calc(50% - 1%); float: left; margin-right: 2%; margin-bottom: 2%;
+        a { display: block; border: 1px solid #D4D4D4; position: relative;
+          .exhibition_img { border-bottom: 1px solid #D4D4D4; overflow: hidden;
+            img { width: 100%; display: block; }
+          }
+          .exhibition_box { padding: 10px; position: relative; z-index: 1;
+            .sub_title { font-size: 16px; font-weight: bold; margin-bottom: 5px; }
+            .sub_text { font-size: 12px; color: $main_gray; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .kword_wrap { position: relative; width: 100%;
+              .kword_list { font-size: 0; white-space: nowrap; overflow-y: hidden; overflow-x: auto;
+                &:after {
+                  content: ""; position: absolute;right: 0; z-index: 1; width: 5px; height: 100%;
+                  background: linear-gradient(to right,rgba(255,255,255,0) 0,rgba(255,255,255,1) 100%);
+                }
+                li { display: inline-block; border: 1px solid $main_gray; color: $main_gray; font-size: 12px; padding: 0 8px; border-radius: 10px; margin: 0 5px 5px 0; }
+                li:last-of-type { margin-right: 0;}
+              }
+            }
+            .more { background-color: #fff; color: #404040; border: 1px solid #D4D4D4; display: inline-block; position: relative;
+              &.small { font-size: 12px; padding: 0 25px 0 10px; height: 25px; line-height: 24px; position: absolute; right: 10px; top: -35px; }
+            }
+            .more:before { content: ""; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; display: inline-block;
+              background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 5'%3E%3Cpath d='M9.905 1.903 8.91.836 9.681 0 12 2.493 9.693 5l-.773-.831 1-1.087L0 3.09V1.912l9.905-.009Z' fill='%23707070'/%3E%3C/svg%3E") no-repeat 50%;
+            }
+          }
+        }
+      }
+      > li:nth-of-type(2n+2){ margin-right: 0;}
+      &:after { content: ""; display: block; clear: both; }
+    }
+  }
+}
+// 메인 아이콘 + 타이틀
+.sec_main_title { display: block; font-size: 16px; font-weight: bold; position: relative; padding-left: 30px; margin: 15px 0 20px;
+  // 지금 사용안하는 아이콘 추후 확인후 삭제
+  //&.hot:before {
+  //  content: ""; position: absolute; left: 0; top: 50%; width: 20px; height: 25px; transform: translateY(-50%);
+  //  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 37'%3E%3Cpath d='M22.69 13.92c2.776 4.996-.12 8.209-.845 10.647.664-8.209-5.13-13.86-1.991-18.559-7.664 5.83-1.992 11.838-5.13 11.957C10.862 18.084 9.836 4.342 16.655 0c-4.103 1.785-10.44 5.83-9.112 20.166-.845-6.603-1.991-10.291-6.336-11.838 2.535 2.677 2.655 7.674 1.026 11.897-1.991 4.997-3.62 8.744-.362 13.741 1.086 1.606 3.198 2.558 5.672 3.093-1.026-.832-1.69-1.784-1.69-2.914 0-2.677 3.682-4.819 8.207-4.819 4.526 0 8.207 2.142 8.207 4.819 0 1.01-.543 1.963-1.448 2.736.905-.178 1.57-.416 2.052-.654 4.948-2.499 8.569-11.54-.181-22.307Z' fill='url(%23a)'/%3E%3Cpath d='M24.983 19.868c.181 4.521-3.138 6.484-5.13 9.875 1.147-7.079.846-11.6-2.172-16.24.845 12.076-9.957 6.9-7.12-3.45-3.138 6.603-2.656 9.994-1.992 14.871-2.172-2.082-3.017-6.364-3.5-8.863-.18 4.462-1.991 6.187-2.655 8.625-1.87 6.663.483 9.578 3.862 10.827a2.794 2.794 0 0 1-.362-1.428c0-2.677 3.681-4.818 8.207-4.818 4.526 0 8.207 2.141 8.207 4.818 0 .238-.06.476-.12.714 5.49-3.212 5.25-10.41 2.775-14.93Z' fill='url(%23b)'/%3E%3Cpath d='M19.009 30.219c2.474-.833 5.431-2.499 6.517-6.008.302 4.699-.965 8.03-3.198 10.053v-.179c.06-1.606-1.267-2.974-3.319-3.866Zm-4.888-.952c1.388 0 2.655.178 3.802.535 2.233-2.439 1.87-5.77.18-9.874-.542 3.33-.784 4.104-4.103 4.402-2.413.238-3.922-2.38-3.56-8.388-1.509 5.71-2.052 8.863-.905 10.886-3.56-1.428-4.224-3.272-3.923-6.484-2.836 5.949-1.991 10.172.423 12.849.664-2.201 4.043-3.926 8.086-3.926Z' fill='url(%23c)'/%3E%3Cdefs%3E%3ClinearGradient id='a' x1='11.372' y1='10.975' x2='15.644' y2='38.259' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FF1F00'/%3E%3Cstop offset='1' stop-color='%23FE0'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='14.201' y1='5.031' x2='14.201' y2='35.682' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FF1F00'/%3E%3Cstop offset='1' stop-color='%23FE0'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' x1='14.72' y1='19.16' x2='14.72' y2='32.144' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FFFB55'/%3E%3Cstop offset='1' stop-color='%23FD0'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") no-repeat 50%;
+  //}
+  //&.tree:before {
+  //  content: ""; position: absolute; left: 0; top: 50%; width: 20px; height: 30px; transform: translateY(-50%);
+  //  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 42'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath fill='%2390B553' d='M14.8 18.2.3 38.7c-.4.6-.4 1.3 0 1.9.4.6 1.2 1 2 1h14.4V17.2c-.8 0-1.5.4-1.9 1ZM33.3 38.7 18.8 18.2c-.4-.6-1.2-1-2-1v24.4h14.4c.8 0 1.6-.3 2-1 .5-.5.5-1.3.1-1.9Z'/%3E%3Cpath fill='%2390B553' d='M15.1 9.2 3 27.9c-.3.5-.4 1.2 0 1.8.4.6 1 .9 1.7.9h12.1V8.3c-.7 0-1.4.3-1.7.9ZM30.6 27.9 18.5 9.2c-.3-.5-1-.9-1.7-.9v22.2h12.1c.7 0 1.3-.3 1.7-.9.4-.5.3-1.2 0-1.7Z'/%3E%3Cpath fill='%2390B553' d='M15.7 5.5 8.1 16.4c-.2.3-.2.7 0 1 .2.3.6.5 1.1.5h7.6V5c-.5 0-.9.2-1.1.5ZM25.5 16.4 17.9 5.5c-.2-.3-.6-.5-1.1-.5v12.9h7.6c.4 0 .8-.2 1.1-.5.2-.3.2-.7 0-1Z'/%3E%3Cpath fill='%23EEC459' d='m17 0 1.4 2.9 3.3.5-2.4 2.3.6 3.2L17 7.4l-2.9 1.5.5-3.2-2.3-2.3 3.2-.5L17 0Z'/%3E%3Cpath fill='%23FDC51D' d='m17 0 1.4 2.9 3.3.5-2.4 2.3.6 3.2L17 7.4l-2.9 1.5.5-3.2-2.3-2.3 3.2-.5L17 0Z'/%3E%3Cpath fill='%23EDB91B' d='M17 0v4.8l1.4-1.9L17 0Z'/%3E%3Cpath fill='%23EDB91B' d='m17 4.8 4.7-1.4-2.4 2.3-2.3-.9ZM17 4.8v2.6l2.9 1.5L17 4.8ZM14.1 8.9 17 4.8l-2.4.9-.5 3.2ZM12.3 3.4 17 4.8l-1.5-1.9-3.2.5Z'/%3E%3Cpath fill='%23FDC51D' d='M10 26a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z'/%3E%3Cpath fill='%23EDB91B' d='M10 23v3.1c.8 0 1.5-.7 1.5-1.5 0-.9-.7-1.6-1.5-1.6Z'/%3E%3Cpath fill='%23FDC51D' d='M8.5 24.5c0 .8.7 1.5 1.5 1.5v-3c-.9 0-1.5.7-1.5 1.5ZM27.2 38.9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z'/%3E%3Cpath fill='%23EDB91B' d='M27.2 35.9V39c.9 0 1.5-.7 1.5-1.5.1-.9-.6-1.6-1.5-1.6Z'/%3E%3Cpath fill='%23FDC51D' d='M25.7 37.4c0 .8.7 1.5 1.5 1.5v-3.1c-.8.1-1.5.8-1.5 1.6ZM21.2 19.2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z'/%3E%3Cpath fill='%23EDB91B' d='M21.2 16.1v3.1c.9 0 1.5-.7 1.5-1.5 0-.9-.7-1.6-1.5-1.6Z'/%3E%3Cpath fill='%23FDC51D' d='M19.6 17.7c0 .8.7 1.5 1.5 1.5v-3.1c-.8 0-1.5.7-1.5 1.6ZM22.2 27.9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z'/%3E%3Cpath fill='%23BA3D39' d='M22.2 24.9V28c.8 0 1.5-.7 1.5-1.5 0-.9-.7-1.6-1.5-1.6Z'/%3E%3Cpath fill='%23C4403C' d='M20.6 26.4c0 .8.7 1.5 1.5 1.5v-3.1c-.8.1-1.5.8-1.5 1.6Z'/%3E%3Cpath fill='%23FDC51D' d='M13 39.3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z'/%3E%3Cpath fill='%23BA3D39' d='M13 36.2v3.1c.8 0 1.5-.7 1.5-1.5 0-.9-.6-1.6-1.5-1.6Z'/%3E%3Cpath fill='%23C4403C' d='M11.5 37.8c0 .8.7 1.5 1.5 1.5v-3.1c-.8 0-1.5.7-1.5 1.6Z'/%3E%3Cpath fill='%23FDC51D' d='M14.7 14.6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z'/%3E%3Cpath fill='%23BA3D39' d='M14.7 11.6v3.1c.9 0 1.5-.7 1.5-1.5 0-.9-.7-1.6-1.5-1.6Z'/%3E%3Cpath fill='%23C4403C' d='M13.1 13.1c0 .8.7 1.5 1.5 1.5v-3.1c-.8.1-1.5.8-1.5 1.6Z'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h33.6v41.6H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") no-repeat 50%;
+  //}
+  &.star:before {
+    content: ""; position: absolute; left: 0; top: 50%; width: 23px; height: 23px; transform: translateY(-50%);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 33 33'%3E%3Cpath d='M16.5 33c-2.01-10.192-2.699-11.642-3.63-12.87C11.642 19.2 10.192 18.5 0 16.5c10.192-2.01 11.642-2.699 12.87-3.63.92-1.228 1.62-2.678 3.63-12.87 2.01 10.192 2.699 11.642 3.63 12.86 1.217.93 2.667 1.63 12.87 3.63-10.192 2.01-11.642 2.698-12.87 3.63C19.2 21.347 18.5 22.808 16.5 33Z' fill='url(%23a)'/%3E%3Cpath d='m8.35 6.827 3.101.296-3.1.296A1.349 1.349 0 0 0 7.239 8.53l-.296 3.102-.296-3.102a1.349 1.349 0 0 0-1.112-1.11l-3.1-.297 3.1-.296a1.349 1.349 0 0 0 1.112-1.112l.296-3.1.296 3.1c.085.572.54 1.016 1.112 1.112Z' fill='url(%23b)'/%3E%3Cpath d='m24.364 23.877 1.217.116-1.217.117a.528.528 0 0 0-.434.434l-.117 1.217-.116-1.217a.516.516 0 0 0-.434-.434l-1.217-.117 1.217-.116a.528.528 0 0 0 .434-.434l.116-1.217.117 1.217a.516.516 0 0 0 .434.434Z' fill='url(%23c)'/%3E%3Cpath d='m11.991 2.879 1.217.116-1.217.117a.516.516 0 0 0-.434.434l-.116 1.217-.117-1.217a.516.516 0 0 0-.434-.434l-1.217-.117 1.217-.116a.528.528 0 0 0 .434-.434l.117-1.217.116 1.217a.516.516 0 0 0 .434.434Z' fill='url(%23d)'/%3E%3Cpath d='m11.938 24.205 2.117.159-2.117.159a2.803 2.803 0 0 0-2.582 2.582l-.159 2.117-.158-2.117a2.803 2.803 0 0 0-2.583-2.582l-2.117-.16 2.117-.158a2.795 2.795 0 0 0 2.583-2.582l.158-2.117.159 2.116a2.795 2.795 0 0 0 2.582 2.583Z' fill='url(%23e)'/%3E%3Cpath d='m22.13 28.396 1.313.095-1.312.096a1.727 1.727 0 0 0-1.599 1.598l-.095 1.312-.095-1.312a1.727 1.727 0 0 0-1.598-1.598l-1.313-.096 1.313-.095a1.727 1.727 0 0 0 1.598-1.598l.095-1.312.095 1.312c.064.857.741 1.535 1.599 1.598Z' fill='url(%23f)'/%3E%3Cpath d='m23.167 8.372-3.863-.117 3.863-.116c.964-.159 1.302-.498 1.461-1.46l.116-3.864.127 3.853c.16.963.498 1.302 1.461 1.46l3.863.117-3.863.116c-.963.159-1.302.498-1.46 1.46l-.117 3.864-.116-3.863c-.17-.953-.508-1.292-1.472-1.45Z' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='16.498' x2='32.997' y2='16.498' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F6AB3B'/%3E%3Cstop offset='1' stop-color='%23F7E921'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='2.428' y1='7.124' x2='11.445' y2='7.124' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F6AB3B'/%3E%3Cstop offset='1' stop-color='%23F7E921'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' x1='22.035' y1='23.998' x2='25.586' y2='23.998' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F6AB3B'/%3E%3Cstop offset='1' stop-color='%23F7E921'/%3E%3C/linearGradient%3E%3ClinearGradient id='d' x1='9.661' y1='3' x2='13.212' y2='3' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F6AB3B'/%3E%3Cstop offset='1' stop-color='%23F7E921'/%3E%3C/linearGradient%3E%3ClinearGradient id='e' x1='4.317' y1='24.368' x2='14.057' y2='24.368' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F6AB3B'/%3E%3Cstop offset='1' stop-color='%23F7E921'/%3E%3C/linearGradient%3E%3ClinearGradient id='f' x1='17.432' y1='28.493' x2='23.44' y2='28.493' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F6AB3B'/%3E%3Cstop offset='1' stop-color='%23F7E921'/%3E%3C/linearGradient%3E%3ClinearGradient id='g' x1='19.302' y1='8.249' x2='30.194' y2='8.249' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F6AB3B'/%3E%3Cstop offset='1' stop-color='%23F7E921'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") no-repeat 50%;
+  }
+  &.bulb:before {
+    content: ""; position: absolute; left: 0; top: 50%; width: 20px; height: 30px; transform: translateY(-50%);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'%3E%3Cpath fill='%23EAEAEA' d='M22.628 25.497 9.282 27.998c-.99.188-1.607 1.361-1.365 2.623.231 1.262 1.222 2.136 2.213 1.959.1-.023.165.132.1.221-.364.498-.518 1.217-.375 1.959.231 1.261 1.233 2.136 2.224 1.947l.386-.066c.099-.022.165.133.099.221-.364.498-.518 1.218-.375 1.96.232 1.26 1.234 2.135 2.225 1.947l8.038-1.516c.991-.188 1.608-1.361 1.365-2.623-.143-.742-.55-1.361-1.057-1.693-.088-.067-.088-.233.011-.244l.386-.066c.99-.188 1.607-1.361 1.365-2.623-.143-.741-.55-1.361-1.057-1.693-.088-.066-.088-.232.011-.243.991-.189 1.608-1.362 1.366-2.623-.232-1.262-1.234-2.136-2.214-1.948Z'/%3E%3Cpath fill='%23FFBA57' d='M21.054 2.324C18.026.277 14.404-.454 10.824.277 3.612 1.737-1.134 8.842.242 16.113a13.59 13.59 0 0 0 4.46 7.746c1.354 1.173 2.445 2.534 3.226 4.028a.937.937 0 0 0 .991.487c.089-.01 12.443-2.346 13.93-2.656a.93.93 0 0 0 1.002-.819c.187-1.682.716-3.342 1.553-4.924a13.689 13.689 0 0 0 1.365-8.898c-.672-3.596-2.698-6.706-5.715-8.753Z'/%3E%3Cpath fill='%23fff' d='M2.5 11.343a.396.396 0 0 1-.462-.476c.065-.31.142-.62.23-.918a.412.412 0 0 1 .496-.277c.209.066.33.288.275.498-.077.277-.154.564-.21.852a.41.41 0 0 1-.33.321ZM3.501 8.543a.449.449 0 0 1-.264-.044.391.391 0 0 1-.165-.542c1.839-3.53 4.988-4.97 5.131-5.024.198-.089.44 0 .529.21.088.199 0 .442-.21.531-.032.011-3.039 1.383-4.745 4.659a.405.405 0 0 1-.276.21Z'/%3E%3Cpath fill='%2354678C' d='M14.402 40.78s.881 3.674 4.757 3.176c3.876-.498 3.282-4.692 3.282-4.692l-8.039 1.516Z'/%3E%3Cpath fill='%23BAB9B9' d='M17.916 36.22a40.612 40.612 0 0 1-4.735.609.238.238 0 0 1-.253-.233.238.238 0 0 1 .23-.254c.045 0 4.714-.266 8.71-1.638a.238.238 0 0 1 .31.155.24.24 0 0 1-.155.31c-1.354.465-2.797.797-4.107 1.051ZM17.266 31.97c-3.491.654-6.288.908-6.332.908a.246.246 0 0 1-.264-.221.246.246 0 0 1 .22-.266c.066 0 6.32-.564 11.76-2.213.132-.044.265.033.309.166.044.133-.034.266-.166.31-1.839.553-3.777.985-5.527 1.317Z'/%3E%3Cpath fill='%23fff' d='M13.412 27.71a.192.192 0 0 1-.199-.11c-.01-.033-1.343-3.353-2.598-6.684-2.588-6.84-2.39-7.094-2.28-7.249.176-.232.529-.088.65-.044.66.266 1.75 1.096 2.599 1.992.055-.609.198-1.162.44-1.616.914-1.804 1.861-2.036 2.346-2.025.616.022 1.145.465 1.442 1.195.033.078.066.155.1.244.142.354.285.697.407 1.029.253-.565.65-1.217 1.233-1.716.44-.376.826-.498 1.167-.365.77.31.947 1.87 1.09 3.121.022.177.033.343.055.487.187 1.428-.793 10.181-.837 10.546-.01.1-.099.166-.198.155a.176.176 0 0 1-.154-.199c.011-.089 1.013-9.085.837-10.469-.022-.144-.033-.31-.055-.487-.11-.974-.287-2.6-.87-2.822-.198-.077-.474.022-.804.31-.562.487-.991 1.206-1.277 1.937.462 1.272.738 2.324.44 2.778-.099.154-.253.232-.451.243-.276 0-.496-.166-.617-.476-.187-.498-.121-1.383.176-2.302.022-.077.055-.155.077-.243-.187-.498-.385-.974-.55-1.372-.033-.089-.066-.166-.1-.244-.242-.598-.66-.963-1.133-.974-.683-.022-1.421.642-2.016 1.826-.275.543-.396 1.195-.418 1.837.606.72 1.321 1.782 1.233 2.734-.033.276-.099.653-.352.73-.1.033-.264.022-.452-.2-.319-.387-.616-1.26-.726-2.201a6.83 6.83 0 0 1-.055-.941 10.648 10.648 0 0 0-1.3-1.25c-.859-.709-1.442-.974-1.618-.974 0 .276.286 1.527 2.378 7.071 1.244 3.276 2.522 6.474 2.533 6.507.033.089-.011.2-.1.232-.021-.022-.033-.01-.043-.01Zm-1.487-11.143c.044.796.231 1.549.451 2.047.144.32.265.442.309.476.022-.034.077-.133.099-.41.066-.608-.297-1.372-.859-2.113Zm4.394-1.096c-.22.764-.265 1.472-.122 1.86.1.254.232.254.276.254.099 0 .132-.045.165-.078.077-.122.154-.498-.198-1.638-.033-.132-.077-.265-.121-.398Z'/%3E%3C/svg%3E") no-repeat 50%;
+  }
+  &.trophy:before {
+    content: ""; position: absolute; left: 0; top: 50%; width: 20px; height: 30px; transform: translateY(-50%);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 35'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath fill='%23F29003' d='M8.811 14.66C3.351 9.9.703 4.49.703 3.679c.108-.433.595-.92 1.19-.974.378 0 1.837 1.19 3.026 2.272.162.108.379.108.487 0 .162-.108.162-.325 0-.487-.757-.703-2.703-2.434-3.514-2.434C.92 2.056.216 2.813 0 3.57c-.216.866 3.946 10.224 9.622 14.228.054.054-.649-3.03-.811-3.138ZM19.135 14.66c5.46-4.76 8.108-10.17 8.108-10.982a1.35 1.35 0 0 0-1.189-.973c-.378 0-1.838 1.19-3.027 2.272-.162.108-.378.108-.486 0-.163-.108-.163-.325 0-.487C23.35 3.733 25.297 2 26.053 2c.973 0 1.73.812 1.892 1.515.216.866-3.946 10.224-9.622 14.227-.054.109.649-2.975.811-3.083Z'/%3E%3Cpath fill='%23FFB600' d='M12.595 24.722c-.595-.487-1.19-1.082-1.19-1.677 0-.487.433-1.028.92-1.46l-.109-1.191C6.324 17.527 4.324 1.46 4.324 1.46H23.73s-1.946 16.121-7.892 18.934l-.162 1.19c.486.433.918.92.918 1.407 0 .54-.594 1.19-1.189 1.677l-.27 2.434c2.703.378 4.324 2.11 4.324 2.11H8.486s1.622-1.677 4.325-2.11l-.216-2.38Z'/%3E%3Cpath fill='%235C2B00' d='M22.811 35H5.136l2.054-5.788h13.567L22.811 35Z'/%3E%3Cpath fill='%23FC3' d='M18.54 17.852c-1.026.54-2.053.865-3.08.865-3.352 0-7.514-3.462-8.433-7.898C5.73 4.382 10.65 2.38 15.46 2.38c3.08 0 6.162.758 7.621 2.922-.756 3.732-2.162 9.196-4.54 12.55ZM24.27 1.406H3.676V.974A.97.97 0 0 1 4.649 0h18.648a.97.97 0 0 1 .973.974v.432Z'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h28v35H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") no-repeat 50%;
+  }
+  &.gift_box:before {
+    content: ""; position: absolute; left: 0; top: 50%; width: 20px; height: 30px; transform: translateY(#{calc(-50% - 3px)});
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 33'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath fill='%23FF80B6' d='M17.331 31.854h9.316a.676.676 0 0 0 .664-.663V16.87h-9.98v14.983ZM.664 16.872V31.19c0 .357.306.663.664.663h9.316V16.872H.664Z'/%3E%3Cpath fill='%23F9E1AA' d='M17.33 7.632v-.077h3.421c.204-.076.409-.179.613-.306.383-.204.765-.46 1.123-.791.357-.332.714-.74.97-1.277a3.46 3.46 0 0 0 .357-1.786 3.684 3.684 0 0 0-.638-1.787C22.436.562 21.236.026 20.139 0a4.284 4.284 0 0 0-1.532.23c-.46.153-.893.357-1.25.612-.74.485-1.277 1.098-1.685 1.685a9.818 9.818 0 0 0-.945 1.736 9.45 9.45 0 0 0-.485 1.531c-.102.46-.178.868-.204 1.2 0 .076-.025.153-.025.23h2.935c.204.025.383.178.383.408Zm-2.756-.383c-.05 0 .51-.613.74-.945.281-.357.588-.74.92-1.123.357-.382.74-.765 1.148-1.123a5.397 5.397 0 0 1 1.327-.867c.23-.103.46-.154.664-.205.204-.025.408-.025.587 0 .357.051.587.23.714.383.103.179.154.281.077.562a1.31 1.31 0 0 1-.28.46c-.128.178-.332.331-.537.51-.408.331-.919.612-1.43.842-.51.255-1.046.46-1.53.638-.486.179-.97.332-1.404.485-.332.128-.945.383-.996.383ZM10.67 7.632c0-.204.178-.383.383-.383h2.935c0-.076 0-.153-.026-.23a9.068 9.068 0 0 0-.204-1.2 9.44 9.44 0 0 0-.485-1.53c-.23-.562-.51-1.15-.944-1.736A6.592 6.592 0 0 0 10.644.868a4.757 4.757 0 0 0-1.25-.612 4.284 4.284 0 0 0-1.532-.23C6.764.05 5.565.587 4.825 1.608a3.683 3.683 0 0 0-.638 1.787 3.46 3.46 0 0 0 .357 1.787c.255.51.587.944.97 1.276.357.332.74.587 1.123.791l.612.307h3.42v.076ZM9.496 5.77a7.807 7.807 0 0 1-1.43-.842 3.411 3.411 0 0 1-.536-.511 2.47 2.47 0 0 1-.28-.46c-.077-.28-.052-.382.076-.56.102-.18.357-.333.715-.384a2.25 2.25 0 0 1 .587 0c.204.026.434.102.663.204.46.205.92.51 1.328.868.408.358.79.74 1.148 1.123.332.383.664.766.92 1.123.254.332.841.945.816.945-.102 0-.74-.256-1.072-.358-.434-.153-.893-.28-1.404-.485-.51-.204-1.021-.408-1.531-.663Z'/%3E%3Cpath fill='%23FDA3E2' d='M27.311 7.53h-9.98v9.342h9.98a.676.676 0 0 0 .664-.664V8.193c.025-.357-.281-.663-.664-.663ZM.664 7.53A.676.676 0 0 0 0 8.193v7.99c0 .357.306.663.664.663h9.98V7.555H.664V7.53Z'/%3E%3Cpath fill='%23F7DA95' d='M16.948 7.249h-5.896a.393.393 0 0 0-.383.383v24.146c0 .204.179.383.383.383h5.896a.393.393 0 0 0 .383-.383V7.632a.376.376 0 0 0-.383-.383Z'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h28v32.16H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") no-repeat 50%;
+  }
+  &.new:before {
+    content: ""; position: absolute; left: 0; top: 50%; width: 20px; height: 30px; transform: translateY(-50%);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 34'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath fill='%23FF3D40' d='M6.972 21.639S5.186 25.872.019 26.987l4.265 1.587-1.447 4.517s7.874-3.553 9.716-9.903l-5.581-1.55Z'/%3E%3Cpath fill='%23DB2831' d='m12.572 23.188-5.6-1.55S6.07 23.756 3.72 25.4l6.708 1.815c.94-1.19 1.71-2.533 2.143-4.026Z'/%3E%3Cpath fill='%23FF3D40' d='M21.067 21.639s1.785 4.233 6.953 5.348l-4.266 1.587 1.447 4.517s-7.874-3.553-9.716-9.903l5.582-1.55Z'/%3E%3Cpath fill='%23DB2831' d='m15.466 23.188 5.6-1.55s.902 2.117 3.25 3.761l-6.708 1.815c-.94-1.19-1.71-2.533-2.142-4.026Z'/%3E%3Cpath fill='%23C69B14' d='M27.642 14.06c0 1.115-2.668 1.871-2.95 2.892-.282 1.058 1.654 3.042 1.109 3.987-.545.945-3.232.246-3.984 1.02-.77.776-.075 3.46-1.015 4.007-.92.548-2.894-1.398-3.965-1.115-1.015.284-1.767 2.967-2.875 2.967-1.109 0-1.86-2.683-2.875-2.967-1.053-.283-3.026 1.663-3.965 1.115-.94-.548-.245-3.25-1.015-4.006-.77-.775-3.44-.076-3.984-1.02-.545-.927 1.39-2.911 1.109-3.988-.282-1.02-2.95-1.777-2.95-2.892s2.668-1.87 2.95-2.891c.281-1.059-1.654-3.043-1.11-3.988.546-.945 3.233-.245 3.985-1.02.77-.775.075-3.459 1.015-4.007.92-.548 2.893 1.399 3.965 1.115C12.1 2.986 12.853.302 13.962.302c1.108 0 1.86 2.684 2.875 2.967 1.052.284 3.026-1.663 3.965-1.115.94.548.244 3.25 1.015 4.007.77.775 3.439.075 3.984 1.02.545.926-1.39 2.91-1.109 3.988.282 1.04 2.95 1.776 2.95 2.891Z'/%3E%3Cpath fill='%23FFDB4F' d='M27.323 13.74c0 1.114-2.668 1.87-2.95 2.89-.282 1.059 1.654 3.043 1.109 3.988-.545.945-3.232.246-3.984 1.02-.77.775-.075 3.459-1.015 4.007-.92.548-2.894-1.398-3.965-1.115-1.015.284-1.766 2.967-2.875 2.967s-1.86-2.683-2.875-2.967c-1.053-.284-3.026 1.663-3.965 1.115-.94-.548-.245-3.25-1.015-4.006-.77-.775-3.439-.076-3.984-1.021-.545-.926 1.39-2.91 1.109-3.987C2.668 15.61 0 14.854 0 13.739s2.668-1.87 2.95-2.891c.282-1.059-1.653-3.043-1.108-3.988.545-.945 3.232-.246 3.983-1.02.771-.775.076-3.459 1.015-4.007.921-.548 2.894 1.399 3.965 1.115C11.82 2.684 12.553 0 13.662 0c1.108 0 1.86 2.684 2.875 2.967 1.052.284 3.025-1.663 3.965-1.115s.244 3.25 1.015 4.006c.77.775 3.439.076 3.984 1.021.526.926-1.39 2.91-1.11 3.988.264 1.02 2.933 1.757 2.933 2.872Z'/%3E%3Cpath fill='%23FFBC27' d='M13.662 23.15c5.169 0 9.358-4.213 9.358-9.411 0-5.198-4.19-9.411-9.358-9.411S4.304 8.54 4.304 13.739c0 5.198 4.19 9.411 9.358 9.411Z'/%3E%3Cpath fill='%23FFCE33' d='M13.662 22.678c4.91 0 8.889-4.002 8.889-8.939S18.57 4.8 13.662 4.8c-4.909 0-8.889 4.002-8.889 8.94 0 4.936 3.98 8.938 8.889 8.938Z'/%3E%3Cpath fill='%23FFEDC0' d='M13.662 22.187c4.639 0 8.4-3.783 8.4-8.448 0-4.665-3.761-8.448-8.4-8.448-4.64 0-8.4 3.783-8.4 8.448 0 4.665 3.76 8.448 8.4 8.448Z'/%3E%3Cpath fill='%23FFBC27' d='M8.23 11.85h.733l1.842 3.155h.019V11.85h.563v4.214h-.638l-1.936-3.345h-.019v3.326H8.23V11.85ZM12.364 11.85h2.537v.528h-1.917v1.248h1.485v.529h-1.485v1.38h1.936v.528h-2.556V11.85ZM15.41 11.85h.638l.752 3.25h.019l.92-3.25h.527l.883 3.25h.019l.77-3.25h.583l-1.034 4.213h-.62l-.864-3.193h-.02l-.883 3.193h-.62l-1.07-4.214Z'/%3E%3Cpath fill='%23F23538' d='M7.893 11.68h.732l1.842 3.155h.019V11.68h.564v4.214h-.64l-1.916-3.345h-.019v3.327h-.564v-4.196h-.018ZM12.046 11.68h2.537v.528h-1.917v1.248h1.485v.529h-1.485v1.38h1.936v.528h-2.556V11.68ZM15.09 11.68h.639l.751 3.25h.02l.92-3.25h.526l.883 3.25h.02l.77-3.25h.582l-1.033 4.213h-.62l-.884-3.193h-.019l-.883 3.194h-.62l-1.052-4.215Z'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h28v33.091H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E") no-repeat 50%;
+  }
+}
+
+// 공통 별점(별1개) + 판매,리뷰
+.review_star_total, .reaction {
+  .data {
+    &_star {
+      > * { display: inline-block; line-height: 20px; }
+      .only_star {
+        $color: 'FFC700'; vertical-align: middle; width: 15px; height: 15px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 52'%3E%3Cpath fill='%23#{$color}' d='M26 2l5.67 18.33H50L35.17 31.67 40.83 50 26 38.67 11.17 50l5.66-18.33L2 20.33h18.33z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        &.disabled {
+          $color: 'DDDDDD';
+          background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 52'%3E%3Cpath fill='%23#{$color}' d='M26 2l5.67 18.33H50L35.17 31.67 40.83 50 26 38.67 11.17 50l5.66-18.33L2 20.33h18.33z'/%3E%3C/svg%3E") no-repeat;
+        }
+      }
+    }
+  }
+}
+.reaction { line-height: 20px;
+  > * { display: inline-block; font-size: $font_sm; }
+  .data { color: $color_gray_9D;
+    &:last-of-type a { text-decoration: underline !important; margin-left: 5px; color: $color_gray_9D; font-size: $font_sm; }
+  }
+}
+// 푸터
+.footer_wrap { border-top: 1px solid $gray_light; padding: 15px; margin-top: 40px;
+  .footer_nav {
+    ul { width: 100%; display: inline-block;
+      li { float: left;
+      a { font-weight: bold; padding: 10px; font-size: $font_sm;}
+        &:first-child a { padding-left: 2px; }
+      }
+    }
+  }
+  .footer_info_wrap {
+    .footer_info { display: block; font-size: $font_s; line-height: 16px;
+      .footer_info_item { display: inline-block; margin-right: 2px; padding: 2px; color: $main_gray;
+        dt,dd {display: inline-block; color: black; }
+        dt{
+        &::after { content: ":"; }
+        }
+      }
+    }
+  }
+  p { font-size: 12px; line-height: 16px; margin: 10px 3px 0; color: $main_gray; }
+}
+// 탭메뉴 공통 ( 메인리뷰, 제품상세 리뷰)
+.list_tab_top { width: 100%; height: 40px; line-height: 38px; position: relative; border-top: 1px solid #E5E5E5;
+  ul {
+    li + li { margin-left: 10px; }
+    li { display: inline-block; width: auto; margin-top: 0; position: relative;
+      a {  display: inline-block; font-size: $font_sm; color: $color_gray_9D; }
+      &.on {
+        &:after { content: ""; position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: $brand_color; }
+        a { color: $brand_color; }
+      }
+    }
+  }
+}

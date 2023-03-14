@@ -1,0 +1,61 @@
+@import 'variable_list.scss';
+@import 'reset_button.scss';
+@import 'pagination.scss';
+@import 'mixin.scss';
+
+//목록
+.compare_price_chart_wrap {
+  &.line_top {
+    .chart_wrap.list { border-top: 1px solid #E5E5E5; }
+  }
+}
+.chart_wrap.list {
+  .chart_wrap__text { width: 100%; font-size: 14px; padding: 20px 0 10px 10px; text-align: center; line-height: 26px;
+    span { font-size: 18px; font-weight: bold; }
+    .price_icon_mint:after { left: 5px; }
+  }
+  .text { width: 100px; }
+  .chart_wrap__chart { padding: 10px 60px 10px 5px; width: 100%; position: relative;
+    &:after { content: ""; width: 1px; height: 100%; background: #E5E5E5; position: absolute; left: 55px;  top: 50%; transform: translateY(-50%); }
+
+    .minimum_price_wrap, .maximum_price_wrap { display: inline-block; width: 100%; float: left;
+      > * { float: left; text-align: left; display: inline-block; }
+      .text { width: 50px; font-size: 12px; font-weight: 500;}
+      .bar_wrap { width: calc(100% - 64px); padding: 6px 0;
+        .bar { height: 10px; position: relative; float: left;
+          //width: 100%;
+          max-width: 100% !important; border-radius: 0 10px 10px 0;
+          .chart_wrap__percent { position: absolute; right: 0; top: 50%; transform: translate(calc(100% + 5px), -50%) }
+        }
+      }
+    }
+  }
+}
+//상세
+.chart_wrap {  width: 100%;
+  display: flex !important; flex-direction: column;
+  //> div { display: inline-block; float: left; }
+  //$text_wrap_width: 340px; $gap: 40px;
+  .chart_wrap__text { font-size: 16px; padding: 15px 0; word-break: keep-all;}
+  .chart_wrap__chart {
+
+    .minimum_price_wrap, .maximum_price_wrap { display: inline-block; width: 100%;
+      > * { float: right; text-align: right; display: inline-block; width: 100%; }
+      .text {  }
+      .bar_wrap {
+        .bar { height: 10px; position: relative; float: right;
+          //width: 100%;
+          max-width: 100% !important;
+          .chart_wrap__percent { position: absolute; left: 0; top: 50%; transform: translate(calc(-100% - 5px), -50%) }
+        }
+      }
+    }
+
+    .minimum_price_wrap { color: $brand_color;
+      .bar { background: $brand_color; }
+    }
+    .maximum_price_wrap {
+      .bar { background: #D4D4D4; }
+    }
+  }
+}

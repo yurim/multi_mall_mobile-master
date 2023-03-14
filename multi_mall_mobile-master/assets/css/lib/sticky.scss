@@ -1,0 +1,14 @@
+//제품 상세
+.product_show_wrap {
+  .product_tab_nav.sticky_fix {
+    & > div {
+      width: 100%;
+      z-index: 200;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      background: #ffffff;
+      padding: 0 15px;
+    }
+  }
+}

@@ -1,0 +1,207 @@
+@import 'variable_list.scss';
+@import 'mixin.scss';
+
+input::-ms-clear, input::-ms-reveal {display: none; width : 0; height: 0;}
+input::-webkit-search-decoration, input::-webkit-search-cancel-button, input::-webkit-search-results-button, input::-webkit-search-results-decoration { display: none; }
+
+$a_height : 40px;
+$input_height : 40px;
+$input_line_height : 40px;
+
+//인풋 text
+ input[type="text"], input[type="password"], input[type="email"], input[type="search"], input[type="phone"], input[type="tel"] , input[type="number"]{
+  appearance: none;
+  outline: none; overflow: hidden; text-indent: 0.01px; text-overflow: ''; border-radius: 0; display: block;
+  background-color: white; height: $input_height; line-height: $input_line_height;
+  width:100%; padding: 9px 12px; border: 1px solid $gray_light;
+}
+
+// 라디오 화살표 스타일
+.arrow_radio_wrap {
+    label { width: calc(50% - 5px); float: left; position: relative;  background: white; border: 1px solid #EFEFEF; transition: all 0.3s ease-in-out;
+      color: $main_gray; text-align: center; height: 40px; line-height: 39px; margin-right: 10px; margin-top: 10px;  }
+    label:nth-of-type(2n+2){ margin-right: 0 !important; }
+    label:nth-of-type(-n+2) { margin-top: 0; }
+    [type="radio"]:checked, [type="radio"]:not(:checked) { position: absolute; left: -9999px; }
+    [type="radio"]:checked + label, [type="radio"]:not(:checked) + label { cursor: pointer; padding-left: 20px; }
+
+    // 화살표
+    [type="radio"] + label:before {
+      content: ""; width: 12px; height: 16px; position: absolute; left: 0; top: 9.5px; margin-left: 14px; z-index: 2;
+      border-left: 2px solid white; border-bottom: 4px solid white; border-top: 1px solid rgba(0, 0, 0, 0); border-right: 1px solid rgba(0, 0, 0, 0);
+      transform: rotate(-45deg) scaleY(0); opacity: 0;
+    }
+
+    // 박스
+    [type="radio"]:checked + label:after,
+    [type="radio"]:not(:checked) + label:after { content: ""; position: absolute; left: 0; top: 9.5px; margin-left: 10px; border: 1px solid #D4D4D4; width: 20px; height: 20px; border-radius: 50%; z-index: 1; }
+
+    // 체크가 됐을때
+    [type="radio"]:checked + label { color: $brand_color;  border: 1px solid $brand_color; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1); }
+    [type="radio"]:checked + label:after { border-color: $brand_color; background: $brand_color; transition: all 0.3s ease-in-out; transition-delay: 0.075s;}
+    [type="radio"]:checked + label:before  { opacity: 1; transform: rotate(-45deg) scaleY(0.5); transition: all 0.3s ease-in-out; transition-delay: 0.075s; }
+
+    //비활성화 상태일때
+    [type="radio"]:disabled {   }
+    [type="radio"]:disabled + label { background: #F9F9F9; }
+    [type="radio"]:disabled + label:after { background: #EDEDED; }
+}
+//라디오 스타일
+.radio_wrap {
+  label:last-of-type { margin-right: 0; }
+  label { height: 20px; line-height: 20px; font-size: $font_sm; margin-right: 10px; }
+  [type="radio"]:checked, [type="radio"]:not(:checked) { position: absolute; left: -9999px; }
+  [type="radio"]:checked + label, [type="radio"]:not(:checked) + label { display: inline-block; position: relative; padding-left: 26px; cursor: pointer; }
+  [type="radio"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 18px; height: 18px;
+    border: 1px solid $brand_color !important;
+    border-radius: 100%;
+    background: $brand_color !important;
+  }
+  [type="radio"]:checked + label:before,
+  [type="radio"]:not(:checked) + label:before { content: '';
+    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    width: 18px; height: 18px;
+    border: 1px solid #B7B7B7; border-radius: 100%; background: #fff;
+  }
+  [type="radio"]:checked + label:after,
+  [type="radio"]:not(:checked) + label:after { content: '';
+    width: 10px; height: 10px;
+    background: white; border: 1px solid white; position: absolute;
+    top: 5px; left: 4px; border-radius: 100%; transition: all 0.2s ease;
+  }
+  [type="radio"]:not(:checked) + label:after { opacity: 0; -webkit-transform: scale(0); transform: scale(0); transition: 0.2s; }
+  [type="radio"]:checked + label:after { opacity: 1; -webkit-transform: scale(1); transform: scale(1); transition: 0.2s; }
+
+  [type="radio"]:disabled {  }
+  [type="radio"]:disabled + label { color: #999 !important; }
+}
+
+
+input[type="checkbox"] ,input[type="file"] { display: none; }
+
+//공통 체크박스 스타일
+
+.checkbox_wrap { position: relative; display: inline-block;
+  &.l_h_15 {
+    input[type="checkbox"] + label { line-height: 18px; font-size: 14px; }
+  }
+  input[type="checkbox"] { display: none;
+    & + label {  position: relative; cursor: pointer; padding: 0 7px 0 30px; display: inline-block; min-width: 14px; min-height: 14px; }
+
+    // Box.
+    & + label:before {
+      content: ''; margin-right: 7px; display: inline-block; position: absolute;
+      top: 50%; transform: translateY(-50%); left: 0;
+      width: 22px; height: 22px; background: white; border: 1px solid #D4D4D4; cursor: pointer;
+      transition: all 0.2s ease-in;
+    }
+    &:checked + label:before { background: #F2F5FF; border-color: $brand_color; transition: all 0.05s ease-in-out; }
+    &:checked + label:after { content: ''; position: absolute; left: 5px; top: calc(50% - 2px); transform: translateY(-50%) rotate(-45deg); width: 12px; height: 7px; border-bottom: 2px solid $brand_color; border-left: 2px solid $brand_color; cursor: pointer; transition: all 0.2s ease-in; }
+
+    &:disabled + label { color: #b8b8b8; cursor: auto; }
+    &:disabled + label:before { box-shadow: none; background: #ddd; }
+  }
+}
+.only_checkbox_wrap {
+  input[type="checkbox"] { display: none;
+    & + label { font-size: 0; position: relative; cursor: pointer; padding: 0; display: inline-block; width: 22px; height: 22px; }
+
+    // Box.
+    & + label:before {
+      content: ''; display: inline-block; position: absolute;
+      top: 50%; transform: translateY(-50%); left: 0;
+      width: 22px; height: 22px; background: white; border: 1px solid #D4D4D4; cursor: pointer;
+      transition: all 0.2s ease-in;
+    }
+    &:checked + label:before { background: #F2F5FF; border-color: $brand_color; transition: all 0.05s ease-in-out; }
+    &:checked + label:after { content: ''; position: absolute; left: 6px; top: 6px; transform: rotate(-45deg); width: 10px; height: 7px; border-bottom: 2px solid $brand_color; border-left: 2px solid $brand_color; cursor: pointer; transition: all 0.2s ease-in; }
+
+    &:disabled + label { color: #b8b8b8; cursor: auto; }
+    &:disabled + label:before { box-shadow: none; background: #ddd; }
+  }
+}
+
+//공통 셀렉터 스타일
+.select_wrap { width: 100%; display: inline-block; float: left; }
+select::-ms-expand { display:none; }
+select {
+  appearance: none;
+  width: 100%;
+  outline : none; overflow : hidden; text-indent : 0.01px; font-size: $font_sm; color: $main_gray;
+  display: block;  white-space:nowrap; text-overflow: ellipsis;
+  border-radius: 0; padding: 9px 12px; height: $input_height; border: 1px solid $gray_light !important;
+  background: url('../img/icon/arrow_buttom.png') no-repeat white calc(100% - 10px) 50%;
+  background-size: 16px;
+}
+.select_half_wrap {
+  @include clear();
+  .select_half { width: 100%;
+    select {
+      width: calc( 49% - 40px); float: left; display: inline-block; margin: 0 10px 10px 0;
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+  .select_but_wrap {
+    a { width: 65px; text-align: center; color: $brand_color; background: white; border: 1px solid $brand_color; display: inline-block;
+        height: 35px;line-height: 35px; font-size: $font_sm;
+    }
+  }
+}
+//라벨 인풋
+.label_but_wrap {
+  input[type="checkbox"] { position: absolute; opacity: 0;
+    & + label { display: inline-block; font-size: $font_sm; cursor: pointer; padding: 0 15px; height: 40px; line-height: 40px; margin-right: 10px; background: #333; color: white; text-align: center; transition: all 0.1s ease-in; }
+    &:checked + label { background: #00b0ff; transition: all 0.1s ease-in; }
+  }
+}
+
+
+
+
+
+//공통 텍스트에어리어
+textarea { width: 100%; height: 200px !important; padding: 10px; resize: vertical; border: 1px solid $gray_light !important; }
+
+//제이쿼리 벨리데이션
+label.error { color: red; }
+
+
+
+.select_input_wrap {
+  > * { display: inline-block; float: left; }
+  select { width: 120px; margin-right: 10px; }
+  input { width: calc(100% - 120px - 10px); }
+}
+.mini_select { width: 40px !important; font-size: $font_m; }
+
+.address_wrap {
+  > * { margin-bottom: 10px; }
+  > *:last-child { margin-bottom: 0; }
+  input:first-child { width: calc(100% - 100px) !important; float: left; margin-right: 10px; }
+  a { float: left; color: $brand_color !important; background: white; border: 1px solid; width: 90px; text-align: center !important;
+     font-size: $font_s;  height: $input_height; line-height: $input_line_height; }
+  .but_light { color: white !important; border: 1px solid $brand_color; background: $brand_color !important; }
+
+  input { width: 100%; clear: both; }
+}
+
+.input_textfield {
+  width: 100%;display: inline-block;
+}
+
+*::placeholder { font-size: $font_sm; color: $main_gray;  }
+
+//넘버 인풋 버튼 삭제
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+.email_form_wrap { display: table; width: 100%;
+  > * { float: left; }
+  input , select { width: calc(50% - 15px); }
+  select { max-width: inherit;}
+  span { width: 20px; text-align: center; margin: 0 5px; line-height: $input_line_height; }
+}

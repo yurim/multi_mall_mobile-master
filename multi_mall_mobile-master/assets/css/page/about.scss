@@ -1,0 +1,277 @@
+@import '../variable_list.scss';
+
+//$main_c_y: #FBFF35;
+//$main_c_b: #4A6EEF;
+
+.main_c_y { color: $main_c_y; }
+.main_c_b { color: $main_c_b; }
+
+.about_us_wrap { margin-top: -60px;
+  //color: $main_c_y;
+  background-color: #F2F5FF;
+  *img { width: auto !important; }
+  > * { display: inline-block; width: 100%; float: left; }
+  .main_visual {
+    background-color: $main_c_b; color: white;
+    position: relative;
+    &:after {
+      content: ''; left: 0; bottom: 0; transform: translateY(100%); display: inline-block; height: 220px;
+      position: absolute; width: 100%; z-index: 9;
+      background-image: url("../../img/about_us/bg_01.png");
+      background-position: center top;
+    }
+
+    .header { margin-bottom: 60px; margin-top: 120px; }
+
+    .text_wrap, .image_wrap { display: inline-block; float: left; }
+
+    $text_width : 550px;
+    .text_wrap { width: calc(#{$text_width} - 15px); padding: 120px 15px 120px 0; position: relative; z-index: 100; }
+    .image_wrap { width: calc(100% - #{$text_width}); position: relative;
+      img { width: 100%; position: absolute; z-index: 100; }
+    }
+
+    .text_wrap {
+      .title_wrap { margin-bottom: 40px; font-size: 35px; line-height: 40px; font-weight: bold;
+        span { font-size: 45px; }
+      }
+      .text { margin-bottom: 40px; font-size: 30px; line-height: 35px; }
+      .img_wrap { font-size: 30px;
+        img { margin-top: 20px; max-width: 360px }
+      }
+    }
+  }
+
+  @media(max-width: 768px) {
+
+    *img { max-width: 100%; width: 100%; }
+
+    .main_visual {
+      .container { width: 100%; }
+      background-color: $main_c_b; color: white;
+      position: relative;
+
+      &:after {
+        z-index: 10; background-size: contain; background-image: url("../../img/about_us/bg_01_m.png");
+        padding-top: 150%; height: auto; bottom: 10px !important;
+      }
+
+      .header { margin-top: 70px; margin-bottom: 40px;  }
+      .text_wrap, .image_wrap { display: inline-block; float: left; }
+
+      .text_wrap { width: 100%; padding: initial;}
+      .image_wrap { width: 100%; position: relative;
+        img { width: calc(100% + 30px) !important; margin-left: -15px; top: -200px; max-width: initial; position: absolute; z-index: 50; }
+      }
+
+      .text_wrap {
+        .title_wrap { margin-bottom: 40px; font-size: 25px; line-height: 30px;
+          span { font-size: 25px; }
+        }
+        .text { margin-bottom: 40px; font-size: 18px; line-height: 25px; }
+        .img_wrap { font-size: 30px;
+          img { margin-top: 20px; max-width: 360px; }
+        }
+      }
+    }
+  }
+
+  //몰리의 장점 5개
+  .content_01 {
+    position: relative;
+    &:before {
+      display: inline-block; content: '';
+      left: 0; bottom: 0; height: 1550px;
+      transform: translateY(42%);
+      position: absolute; width: 100%; z-index: 10;
+      background-image: url("../../img/about_us/bg_02.png");
+      background-position: center top;
+    }
+
+    .container { text-align: left;
+      .content_01__title { margin: 450px 0 300px 0; font-size: 40px; line-height: 46px; }
+      ul { display: inline-block; width: 100%; position: relative; z-index: 100;
+        li:nth-child(2n+2) { margin-right: 0; }
+        li:last-child { margin-left: 25%; }
+
+        li {
+          display: inline-block; float: left; width:calc(50% - 10px); margin-right: 10px; margin-bottom: 100px;
+          background: white; padding: 20px; border-radius: 10px; position: relative; box-shadow: 5px 7px 12px -8px grey;
+
+          .title_wrap { height: 70px; font-size: 30px; line-height: 32px; margin-bottom: 24px; color: $main_c_b; }
+          .img_wrap { position: absolute; right: 20px; top: -110px; width: 200px; height: 200px; background-size: contain !important; }
+          .text_wrap { height: 40px; font-size: 18px; }
+        }
+
+        li:nth-child(1){ .img_wrap { background: url("../../img/about_us/content_01_01.png") no-repeat center bottom; }}
+        li:nth-child(2){ .img_wrap { background: url("../../img/about_us/content_01_02.png") no-repeat center bottom; }}
+        li:nth-child(3){ .img_wrap { background: url("../../img/about_us/content_01_03.png") no-repeat center bottom; }}
+        li:nth-child(4){ .img_wrap { background: url("../../img/about_us/content_01_04.png") no-repeat center bottom; right: 0 !important; }}
+        li:nth-child(5){ .img_wrap { background: url("../../img/about_us/content_01_05.png") no-repeat center bottom; }}
+      }
+    }
+  }
+
+  @media(max-width: 768px) {
+    .content_01 {
+
+      &:before {
+        transform: translateY(-19%);
+        background-image: url("../../img/about_us/bg_02_m.png");
+        background-size: cover;
+      }
+
+      .container {
+        .content_01__title {
+          margin: 180% 0 150px 0;
+          font-size: 28px; line-height: 35px;
+        }
+        ul {
+          li:last-of-type { margin-left: 0; }
+          li { width: 100%;margin-right: 0; border-radius: 30px; padding: 30px 20px;
+
+            .title_wrap { height: 70px; font-size: 24px; line-height: 30px; margin-bottom: 24px; }
+            .img_wrap {
+              right: 20px; top: -95px; width: 180px; height: 180px; background-size: contain !important;
+            }
+            .text_wrap { height: auto; font-size: 18px; }
+          }
+        }
+      }
+    }
+  }
+
+  //3개
+  .content_02 { margin-top: 100px; position: relative; z-index: 100;
+
+    &:before {
+      left: 0; bottom: 0; height: 1550px;
+      transform: translateY(7%);
+      position: absolute; width: 100%; z-index: 10;
+      background-position: center top;
+      background-size: contain;
+    }
+
+    .content_02__title { margin-bottom: 250px;
+      img { margin-bottom: 100px; }
+      div { font-size: 40px; line-height: 45px; }
+    }
+
+    @media(max-width: 768px) {
+      .content_02__title { margin-bottom: 250px;
+        img { margin-bottom: 100px; }
+        div { font-size: 24px; line-height: 30px; }
+      }
+    }
+
+    ul { position: relative; z-index: 100;
+      li {
+        display: flex; flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        > * { display: inline-block; float: left; }
+
+        .image_wrap {
+          img { width: 100%; }
+        }
+        .text_wrap {
+          > div:first-of-type {
+            font-size: 30px; line-height: 35px; margin-bottom: 40px; color: $main_c_b;
+            font-weight: bold; position: relative; display: inline-block;
+          }
+          > div:last-of-type { font-size: 25px; }
+        }
+      }
+
+      @media(max-width: 768px) {
+        .text_wrap {
+          > div:first-of-type {
+            font-size: 24px !important; line-height: 29px !important; margin-bottom: 40px;
+          }
+          > div:last-of-type { font-size: 18px !important; }
+        }
+      }
+
+      li{
+        .text_wrap {
+          > div:first-of-type:after { content: ''; position: absolute; right: 0; z-index: 0; background-size: contain; }
+        }
+      }
+
+      li:nth-child(1) { margin-bottom: 120px;
+        .text_wrap {
+          > div:first-of-type:after {
+            width: 50px; height: 50px;
+            top: 0;
+            background-image: url("../../img/about_us/content_02_deco_01.png");
+          }
+        }
+      }
+
+      li:nth-child(2) {margin-bottom: 60px;
+        .text_wrap {
+          > div:first-of-type:after {
+            width: 50px; height: 50px;
+            top: -25px; right: -14px;
+            background-image: url("../../img/about_us/content_02_deco_02.png");
+          }
+        }
+      }
+
+      li:nth-child(3) {
+        .text_wrap {
+          > div:first-of-type:after {
+            width: 50px; height: 50px;
+            top: -25px;
+            background-image: url("../../img/about_us/content_02_deco_03.png");
+          }
+        }
+      }
+    }
+  }
+
+  @media(max-width: 768px) {
+    .content_02 {
+      ul {
+        li { display: inline-block; width: 100%;
+          .image_wrap { }
+          .text_wrap { margin-top: 40px; }
+        }
+      }
+    }
+  }
+
+  //유투브
+  .content_03 {
+    padding: 120px 0 160px 0;
+  }
+
+  @media(max-width: 768px) {
+    .content_03 {
+      .container { width: 100%; }
+    }
+  }
+
+  .footer { background: $main_c_b; padding: 80px 0; color: white; text-align: center; margin-bottom: -90px;
+
+    .footer__title { font-size: 45px; font-weight: bold; margin-bottom: 40px; }
+    .text_wrap { font-size: 40px; line-height: 45px; margin-bottom: 40px; }
+    .btn_wrap { display: inline-block;
+      a {
+        display: inline-block; color: $main_c_b; background: white !important; padding: 10px 40px;
+        font-size: 25px; line-height: 25px;
+        height: auto; border-radius: 15px;
+      }
+    }
+    .color_white { font-size: 25px; margin-top: 10px; }
+
+    @media(max-width: 768px) {
+      .footer__title { font-size: 22px; margin-bottom: 40px; }
+      .text_wrap { font-size: 18px; line-height: 22px; margin-bottom: 40px; }
+    }
+
+  }
+}
+
+

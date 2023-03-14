@@ -1,0 +1,34 @@
+@import '../variable_list.scss';
+@import '../reset_button.scss';
+@import '../tooltip';
+//매장 상세
+.product_store_wrap { margin-top: 20px;
+  .top_sub_wrap,.top_sub_wrap_item {  border-bottom: 1px solid $gray_light; margin-top: 10px;
+    word-break: break-word;
+    .category_title { font-weight: bold; margin-bottom: 10px; }
+    ul{ display: inline-block;
+      li {  float: left;
+        a { display: inline-block; margin-right: 14px; }
+      }
+    }
+  }
+  .top_sub_wrap {
+    .category_list { display: inline-block;
+        li{
+          a { color: $brand_color; position: relative;
+            &::after { content: ">"; position: absolute; right: -10px;top: 0; }
+          }
+          &:last-child a::after { display: none;}
+        }
+     }
+  }
+  .top_range_wrap { display: inline-block; width: 100%; margin: 10px 0;
+    li {  float: left; margin-right: 13px;
+      a { font-size: $font_sm; display: inline-block; position: relative; }
+    }
+    a:last-of-type { margin-right: 0; }
+    a::after { content: ''; width: 1px; height: 12px; background: #000000; position: absolute; top: 50%; transform: translateY(-50%); right: -7px; }
+    a:last-of-type::after { content:none; }
+    li.on a{ color: $brand_color; }
+  }
+}

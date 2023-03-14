@@ -1,0 +1,36 @@
+//페이지네이션 공통
+.v-pagination {
+  li {
+    margin: 20px 0;
+    button{ box-shadow: none !important; border: 0; cursor: pointer;}
+    &:nth-child(2) button{
+      background: none !important; color: #000; transition: all 0.1s;
+    }
+
+    //맨앞 맨끝 "<", ">" 버튼
+    .v-pagination__navigation {
+      color: #dfdfdf !important;
+    }
+
+    //번호 활성화 되었을때
+    .v-pagination__item--active{ position: relative;
+      &::after{ content: ''; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); display: inline-block;
+        width: 80%; height: 2px; background: #4A6EEF; transition: all 0.5s;
+      }
+    }
+
+    .primary { background: white !important; color: black !important; }
+
+    .v-pagination__navigation--disabled {
+      color: #ededed;
+    }
+    .v-input__slot {  }
+  }
+}
+// 페이지네이션 공통 스타일
+.swiper-pagination { width: 100%; margin: auto; position: relative !important;
+  li { border-bottom: none !important; }
+}
+.swiper-pagination-bullet { opacity: 0.3 !important; background: black!important; }
+.swiper-pagination-bullet-active { opacity: 1 !important; }
+.swiper-button-prev, .swiper-button-next { color: black !important; }

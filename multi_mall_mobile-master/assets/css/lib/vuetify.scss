@@ -1,0 +1,25 @@
+@import '../variable_list.scss';
+
+.v-application--wrap { margin-top: 110px !important;  margin-bottom: 90px !important; }
+
+.v-application ul, .v-application ol { margin: 0; padding-left: 0; }
+.v-application a { color: black; }
+.v-application p { margin-bottom: 10px !important;}
+.v-application {
+  ul { padding-left: 0 !important; }
+}
+ul { padding-left: 0 !important; }
+
+.container {  padding: 0 15px !important; max-width: 100% !important; margin-right: auto !important; margin-left: auto !important; }
+
+.elevation-1 { box-shadow: none !important; }
+
+.v-data-table { border: 1px solid #d9d9d9; box-shadow: none !important;
+  > * { box-shadow: none !important }
+}
+// 평점 색상
+.vue_progress {
+  .v-progress-linear__background.primary { background-color: #F5F5F5 !important; border-color: #F5F5F5 !important; opacity: 1 !important; }
+  .v-progress-linear__determinate.primary { background-color: $brand_color !important; border-color: $brand_color !important; }
+}
+

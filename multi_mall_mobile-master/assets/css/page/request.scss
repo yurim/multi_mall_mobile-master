@@ -1,0 +1,53 @@
+@import '../variable_list.scss';
+// 입점문의 약관
+// 서브페이지 타이틀 공통
+.main_title_wrap { margin: 40px 0 25px;
+  h2 { font-size: $font_l;}
+ }
+.content_warp {
+  // 약관안내 공통
+  .register_terms { margin-bottom: 40px;
+    p { font-size: $font_s; line-height: 1.2; color: $gray_medium; }
+  }
+.register_checkbox{ margin-bottom:  90px;
+  li{ margin-bottom: 15px; display: inline-block; width: 100%;}
+ }
+}
+//입점문의 동의
+.partner_wrap {
+  h3 { margin: 25px 0; }
+  .chk_name { display: inline-block; margin-right: 10px; }
+  li{ margin-bottom: 10px;
+    .info_title { margin-bottom: 10px;
+      .color_r{ color: $main_red; }
+    }
+    .input_textfield_file {
+      width: 100%;display: inline-block;
+      .file_txt { display: inline-block; color: $main_gray; }
+      img { width: 100px; height: 100px; object-fit: cover; }
+      label {
+        display: inline-block; float: right; padding: 10px 20px; font-size: $font_s;
+        color: $brand_color; border: 1px solid $brand_color; background: white !important;
+      }
+    }
+    &:last-child { margin-bottom: 0;}
+  }
+  .input_checkbox { width: 100%;
+    .checkbox_wrap { margin-bottom: 10px; }
+  }
+  .category_list_wrap { width: 100%; margin-bottom: 10px;
+    .category_list { display: inline-block; margin-right: 10px; font-size: $font_s; color: $brand_color; }
+    a { display: inline-block; color: $brand_color; border: 1px solid $brand_color; background: white !important;
+        font-size: $font_xs;  padding: 4px 12px;
+    }
+  }
+}
+// 이용약관, 개인정보, 제 3자 정보 제공 페이지
+.agreement{ padding: 0 30px;
+  .scroll-box {
+    overflow-y: scroll; height: 250px; padding: 15px 8px; border: 1px solid $gray_light; font-size: $font_s;
+  }
+}
+.agreement ,.mypage_info_wrap, .content_warp {
+  .but_wrap { margin-top: 30px; }
+}

@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  nuxt:
+#    image: ilsamhz/multi_mall_mobile:0.1
+    build: .
+    restart: always
+    container_name: nuxt
+    ports:
+      - 3000
+    command: npm start
+
+  nginx:
+    image: nginx:1.18
+    container_name: nginx
+    ports:
+      - 80:80
+      - 3000:3000
+      - 443:443
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - nuxt
+
+  django:
+    image: ilsamhz/multi_mall_back:0.2
+    container_name: django
+    build:
+      context: ../multi_mall_back
+      dockerfile: Dockerfile
+    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
+    # settings.py 환경분리 되어있어 settings를 지정해야하는 경우 다음과 같이 추가 입력
+    # [--env DJANGO_SETTINGS_MODULE='<django_project>.settings.production']
+    volumes:
+      - ../multi_mall_back:/app
+    links:
+      - nuxt
+    ports:
+      - 8000:8000
+
+networks:
+  test_net:
+    driver: bridge

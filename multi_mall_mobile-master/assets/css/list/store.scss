@@ -1,0 +1,59 @@
+@import '../variable_list.scss';
+
+//메인에서
+.store_list_wrap.main {
+  li:last-of-type { margin-right: 0; }
+  li { margin-right: 1%; width: 13.42%; display: inline-block; float: left;
+    img { width: 100%; margin-bottom: 10px; background: #A7A7A7;}
+    a { div:last-child{ white-space: nowrap; overflow:hidden; text-overflow:ellipsis; line-height:18px; height:18px;} }
+  }
+}
+
+//매장 리스트
+.store_list_wrap { display: inline-block; float: left; width: 100%;
+  //리스트에 2단
+  li { width: 100%; margin-bottom: 1%; float: left; display: inline-block; padding: 15px; box-shadow: 1px 4px 10px -6px;
+    > div { display: inline-block; float: left; width: 100%; }
+  }
+  li:nth-child(2n+2) { margin-right: 0; }
+
+
+  //매장정보부분
+  .store_info_wrap { display: inline-block; float: left; width: 100%;
+    > div { display: inline-block; float: left; }
+
+    .store_info_wrap__img { width: 100px; margin-right: 10px;
+      &.contain{
+        .img_bg_wrap{ background-size: contain !important; padding: 0 !important; height: 100px;}
+      }
+      //img { width: 100%; }
+    }
+    .store_info_wrap__title_wrap { color: #A7A7A7; width: calc(100% - 110px - 40px); margin-right: 10px;
+      > * { display: inline-block; float: left; width: 100%; }
+      .store_info_wrap__title { font-size: 18px; font-weight: bold; color: black; margin-bottom: 10px; }
+    }
+    .store_info_wrap__icon { width: 30px;
+      a { display: inline-block; width: 100%;
+        img { width: 100%; }
+      }
+    }
+  }
+
+  //매장 상품
+  .store_product_wrap { width: 100%;  display: inline-block; float: left; position: relative;
+    //div { display: initial; width: initial; float: initial; }
+    > * { width: 32.3%; display: inline-block; float: left; margin-top: 10px; margin-right: 1%;}
+    > *:last-child { margin-right: 0; }
+    //.store_product_inner { margin-top: 10px; }
+    .empty_text_wrap { width: 100%; padding: 40px 0; }
+    img { width: 100%; }
+    //.swiper { }
+  }
+}
+
+.explain_wrap {
+  font-size: $font_s; color: $main_gray;
+}
+.border_gray_medium {
+  border: 1px solid $gray_medium;
+}

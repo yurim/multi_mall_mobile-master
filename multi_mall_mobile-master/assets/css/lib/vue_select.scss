@@ -1,0 +1,35 @@
+.v-select, .vs--single, .vs--searchable { height: 34px !important; }
+.vs__selected { position: absolute; left: 5px; top: 50%; transform: translate(0, -50%); z-index: 100; }
+.vs__actions { position: absolute; right: 5px; top: 50%; transform: translate(0, -50%); z-index: 150; }
+
+// 제품상세 샐랙트
+.v-select_wrap {
+  .v-select, .vs--single, .vs--searchable { height: auto !important; }
+  .v-select { margin-bottom: 10px; position: relative; }
+  .option_list_wrap { display: inline-block; width: 100%; cursor: pointer; padding: 9px 12px; font-size: 14px; color: black;
+    .img_wrap { width: 60px; float: left; display: inline-block; margin-right: 10px; }
+    span { float: left; white-space: normal !important; max-width: calc(100% - 70px); word-break: break-all; font-size: 14px; color: black; }
+    &:hover { background: #fafafa;transition: all 0.2s; }
+  }
+  .vs__dropdown-menu { font-size: 0;
+    display: block; width: 100%; max-height: 250px; overflow-y: auto;
+    position: absolute; top: calc(100% - 0.8px); left: 0; z-index: 1000;
+    background: white; box-shadow: 0 3px 6px 0 rgba(0,0,0,.15);
+    border-radius: 0 0 4px 4px; box-sizing: border-box; color: #707070;
+  }
+  .vs__open-indicator { fill: rgba(112, 112, 112, 0.5); transition: all 0.2s;}
+  .vs--open .vs__open-indicator { transform: rotate(180deg); }
+  //.vs__clear { fill: rgba(112, 112, 112, 0.5); }
+  .vs__no-options { padding: 9px 12px; font-size: 14px; }
+
+  .vs__dropdown-toggle { display: flex; min-height: 40px; position: relative; border: 1px solid #dadce0;
+     border-radius: 0; background: white; padding: 5px 5px 5px 9px; line-height: 28px;
+    .vs__selected-options { color: #707070; font-size: 14px; display: flex; flex-grow: 1; flex-wrap: wrap;
+      input { border: 0; background: none; text-indent: 9px; max-width: 100%; flex-grow: 1; z-index: 1; padding: 0; height: auto;
+        line-height: initial; position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+      input::placeholder { font-size: 14px;}
+    }
+    .vs__selected , .vs__actions { position: relative; left: 0; top: 0; transform: initial; }
+    .vs__actions { padding: 5px 10px; cursor: pointer; display: flex; align-items: center; }
+  }
+}

@@ -1,0 +1,30 @@
+//scss mixin 정의
+
+@mixin border($px, $color) {
+  border: $px solid $color;
+}
+
+@mixin width_height($px: 1px) {
+  width: $px;
+  height: $px;
+}
+
+//높이, 텍스트 행간
+@mixin height_lineHeight ($h: 40px, $lh: 30px) {
+  height: $h;
+  line-height: $lh;
+}
+
+//사이트 중앙에 놔둘때
+@mixin apsolute_center ($left: 50%, $top: 50%, $transform_left: -50%, $transform_right: -50%) {
+  position: absolute;
+  left: $left; top: $left;
+  transform: translate($transform_left, $transform_right);
+}
+
+//float 속성 해제
+@mixin clear{
+  &::after{
+    content: ""; display: block; clear: both;
+  }
+}

@@ -1,0 +1,41 @@
+//스크롤 숨기기
+
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.quill_editor::-webkit-scrollbar{ display: none; }
+.quill_editor {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+//스크롤 표시
+ body {
+  -ms-overflow-style: auto !important; /* IE and Edge */
+  scrollbar-width: auto !important; /* Firefox */
+}
+
+// 상단에 들어가는 sub nav 스크롤바
+//.top_nav_bar {
+//  &::-webkit-scrollbar {
+//    width: 8px;
+//    height: 8px;
+//    background: #ffffff;
+//  }
+//  &::-webkit-scrollbar-thumb {
+//    border-radius: 3.5px;
+//    background-color: #dfdfdf;
+//
+//    &:hover {
+//      background-color: #ccc;
+//    }
+//  }
+//  &::-webkit-scrollbar-track {
+//    background: #ffffff;
+//  }
+//}
+/*특정 부분 스크롤바 없애기*/
+.top_nav_bar ul { -ms-overflow-style: none; } .top_nav_bar ul::-webkit-scrollbar{ display:none; }
+

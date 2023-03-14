@@ -1,0 +1,39 @@
+@import 'variable_list.scss';
+
+//공통
+table, .table_wrap { width: 100%; margin-bottom: 15px; background: white;
+ > &:last-child { margin-bottom: 0; }
+
+tr {
+  th {  }
+  th, td { font-size: $font_sm; text-align: left; padding: 10px; }
+}
+
+ thead {
+   tr {
+     border-bottom: 1px solid $gray_light;
+     th { font-weight: bold; font-size: 16px !important; }
+     th, td {  }
+   }
+ }
+}
+
+table {
+  &.bg_line { border-collapse : collapse; border-top: 1px solid $color_gray_9D; border-bottom: 1px solid $color_gray_9D;
+    tr {
+      th, td  { border-top: none; border-right: none; border-left: none; border-bottom: 1px solid #EDEDED; }
+    }
+    tr:last-of-type {
+      th, td { border-bottom: none; }
+    }
+  }
+}
+
+// 포인트 내역
+table.tb_type1 { width: 100%; margin-top: 10px;
+  tr, td { border: 0; }
+  td { padding: 5px; border-bottom: 1px solid $gray_light; }
+  .date { color: $main_gray; }
+  td:last-child { text-align: right; color: $main_gray; }
+}
+

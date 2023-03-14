@@ -1,0 +1,47 @@
+//컬러 관련
+$brand_color: #4A6EEF;
+$main_gray: #707070;
+$main_red:#ff0000;
+
+.brand_color { color: $brand_color !important; }
+.main_gray { color: $main_gray; }
+
+.main_red { color: $main_red; }
+.color_r { color: $main_red; }
+.color_pink { color: #ff005c; }
+
+$gray_light:#dfdfdf;
+$gray_medium:#a7a7a7;
+$gray_dark: #4e4e4e;
+
+$main_c_y: #FBFF35;
+$main_c_b: #4A6EEF;
+
+//정리필요
+$color_gray_7: #777;
+$color_gray_fb: #FBFBFB;
+$color_gray_f3: #F3F3F3;
+$color_gray_f2: #F2F2F2;
+$color_gray_a7: #A7A9AC;
+$color_gray_9D: #9D9D9D;
+$color_gray_D4: #d4d4d4;
+.color_gray_D4 { color: $color_gray_D4; }
+.color_gray_9D { color: $color_gray_9D; }
+//폰트
+$font_xs: 10px;
+$font_s: 12px;
+$font_sm: 14px;
+$font_m: 18px;
+$font_l: 22px;
+
+.font_s { font-size: $font_s !important; }
+.font_sm { font-size: $font_sm !important; }
+.font_m { font-size: $font_m !important; }
+.font_l { font-size: $font_l !important; }
+.font_500 { font-weight: 500 !important; }
+
+
+
+
+
+
